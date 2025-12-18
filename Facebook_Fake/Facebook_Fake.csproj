@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Facebook_Fake.Application\Facebook_Fake.Application.csproj" />
+    <ProjectReference Include="..\Facebook_Fake.Communication\Facebook_Fake.Communication.csproj" />
+    <ProjectReference Include="..\Facebook_Fake.Domain\Facebook_Fake.Domain.csproj" />
+    <ProjectReference Include="..\Facebook_Fake.Infrastruture\Facebook_Fake.Infrastruture.csproj" />
+  </ItemGroup>
+
+</Project>

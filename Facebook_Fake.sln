@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook_Fake", "Facebook_Fake\Facebook_Fake.csproj", "{78724ADE-876B-4D0B-9574-C7DF8B91AA49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook_Fake.Application", "Facebook_Fake.Application\Facebook_Fake.Application.csproj", "{434C7BD6-B924-4173-9FFD-E35EAF92B69A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook_Fake.Communication", "Facebook_Fake.Communication\Facebook_Fake.Communication.csproj", "{14E57C96-1E6D-4233-81D1-B165E1100CC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook_Fake.Domain", "Facebook_Fake.Domain\Facebook_Fake.Domain.csproj", "{C798096F-2AB1-44F0-BE47-5CD5B5431150}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook_Fake.Infrastruture", "Facebook_Fake.Infrastruture\Facebook_Fake.Infrastruture.csproj", "{DD934E44-C4D9-4721-A4D0-7AF2AEBF49BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78724ADE-876B-4D0B-9574-C7DF8B91AA49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78724ADE-876B-4D0B-9574-C7DF8B91AA49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78724ADE-876B-4D0B-9574-C7DF8B91AA49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78724ADE-876B-4D0B-9574-C7DF8B91AA49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{434C7BD6-B924-4173-9FFD-E35EAF92B69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434C7BD6-B924-4173-9FFD-E35EAF92B69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434C7BD6-B924-4173-9FFD-E35EAF92B69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434C7BD6-B924-4173-9FFD-E35EAF92B69A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14E57C96-1E6D-4233-81D1-B165E1100CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14E57C96-1E6D-4233-81D1-B165E1100CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14E57C96-1E6D-4233-81D1-B165E1100CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14E57C96-1E6D-4233-81D1-B165E1100CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C798096F-2AB1-44F0-BE47-5CD5B5431150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C798096F-2AB1-44F0-BE47-5CD5B5431150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C798096F-2AB1-44F0-BE47-5CD5B5431150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C798096F-2AB1-44F0-BE47-5CD5B5431150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD934E44-C4D9-4721-A4D0-7AF2AEBF49BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD934E44-C4D9-4721-A4D0-7AF2AEBF49BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD934E44-C4D9-4721-A4D0-7AF2AEBF49BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD934E44-C4D9-4721-A4D0-7AF2AEBF49BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E62E045-830A-45D0-AB59-23A08D47261D}
+	EndGlobalSection
+EndGlobal
