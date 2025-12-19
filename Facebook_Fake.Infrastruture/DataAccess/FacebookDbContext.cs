@@ -6,18 +6,11 @@ namespace Facebook_Fake.Infrastruture.DataAccess;
 
 internal class FacebookDbContext : DbContext
 {
-    public DbSet<Users> Users { get; set; }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public FacebookDbContext(DbContextOptions<FacebookDbContext> options) : base(options)
     {
-        var connectionString = "Server=localhost;Database=cashflow_db;Uid=face_user;Pwd=123456";
-
-
-        var serverVersion = new MySqlServerVersion(new Version(9, 4, 0));
-
-        optionsBuilder.UseMySql(connectionString, serverVersion);
     }
 
+    public DbSet<Users> Users { get; set; }
 }
 
 

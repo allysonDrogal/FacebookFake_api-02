@@ -44,7 +44,13 @@ namespace Facebook_Fake.Application.useCase.Users.Register
              _repository.Add(user);
 
             // 4. Retornar a resposta com os dados do usuário criado
-            return new ResponseUsersJson();
+            return new ResponseUsersJson()
+            {
+                Id = user.Id,
+                Name = user.Name,
+                Username = user.Username,
+                Email = user.Email,
+            };
         }
 
         private void Validate(RequestUsersJson request)

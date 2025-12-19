@@ -1,17 +1,29 @@
 ﻿
+using Facebook_Fake.Domain.Entities;
 using Facebook_Fake.Domain.Repositories.Users;
+using Microsoft.EntityFrameworkCore;
 
 namespace Facebook_Fake.Infrastruture.DataAccess.Repositories
 {
     internal class UsersRepository : IUsersRepository
     {
+        private readonly FacebookDbContext _context;
+
+        public UsersRepository(FacebookDbContext context)
+        {
+            _context = context;
+        }
         public void Add(Domain.Entities.Users users)
         {
-            var dbContext = new FacebookDbContext();
+            _context.Users.Add(users);
+            _context.SaveChanges();
+        }
 
-            dbContext.Users.Add(users);
-
-            dbContext.SaveChanges();
+        public async Task<Users?> GetByEmailAsync(string email)
+        {
+            return await _context.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Email == email);
         }
     }
 }

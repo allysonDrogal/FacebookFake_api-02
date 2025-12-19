@@ -2,6 +2,7 @@
 using Facebook_Fake.Communication.Responses;
 using Facebook_Fake.Application.useCase.Users.Register;
 using Microsoft.AspNetCore.Mvc;
+using Facebook_Fake.Application.useCase.Users.Login;
 
 namespace FacebookFake.Api.Controllers;
 
@@ -21,6 +22,25 @@ public class UsersController : ControllerBase
         var response = await registerUsersUseCase.Execute(request);
         return Created(string.Empty, response);
 
+    }
+
+    [HttpPost("login")]
+    [ProducesResponseType(typeof(ResponseLoginJson), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ResponseErrorJson), StatusCodes.Status401Unauthorized)]
+    public async Task<IActionResult> Login(
+        [FromServices] ILoginUseCase loginUseCase,
+        [FromBody] RequestLoginJson request)
+    {
+        try
+        {
+            var response = await loginUseCase.Execute(request);
+            return Ok(response);
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            return Unauthorized(ex.Message);
+
+        }
     }
 }
 
