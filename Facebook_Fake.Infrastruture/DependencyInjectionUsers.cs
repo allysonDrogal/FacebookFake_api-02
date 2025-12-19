@@ -1,10 +1,12 @@
 ﻿
 using Facebook_Fake.Domain.Encrypt;
 using Facebook_Fake.Domain.Repositories.Users;
+using Facebook_Fake.Domain.Services;
 using Facebook_Fake.Infrastruture.DataAccess;
 using Facebook_Fake.Infrastruture.DataAccess.Repositories;
 using Facebook_Fake.Infrastruture.Encrypt;
 using Facebook_Fake.Infrastruture.JwtToken;
+using Facebook_Fake.Infrastruture.Mailtrap;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +21,7 @@ namespace Facebook_Fake.Infrastruture
             AddDbContext(services, configuration);
             AddRepositories(services);
             AddSecurity(services, configuration);
+            AddEmail(services, configuration);
         }
 
         private static void AddDbContext(IServiceCollection services, IConfiguration configuration)
@@ -40,6 +43,7 @@ namespace Facebook_Fake.Infrastruture
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IUsersRepository, UsersRepository>();
+            services.AddScoped<IPasswordResetTokenRepository, PasswordResetTokenRepository>();
         }
 
         private static void AddSecurity(IServiceCollection services, IConfiguration configuration)
@@ -56,6 +60,20 @@ namespace Facebook_Fake.Infrastruture
 
             services.AddScoped<ITokenGenerator>(provider =>
                 new JwtTokenGenerator(secretKey, expiryMinutes > 0 ? expiryMinutes : 100));
+        }
+
+        private static void AddEmail(IServiceCollection services, IConfiguration configuration)
+        {
+            var smtpHost = configuration["Email:SmtpHost"] ?? throw new InvalidOperationException("Email:SmtpHost não configurado");
+            var smtpPort = configuration.GetValue<int>("Email:SmtpPort");
+            var smtpUsername = configuration["Email:SmtpUsername"] ?? throw new InvalidOperationException("Email:SmtpUsername não configurado");
+            var smtpPassword = configuration["Email:SmtpPassword"] ?? throw new InvalidOperationException("Email:SmtpPassword não configurado");
+            var fromEmail = configuration["Email:FromEmail"] ?? throw new InvalidOperationException("Email:FromEmail não configurado");
+            var fromName = configuration["Email:FromName"] ?? "Facebook Fake";
+            var resetPasswordUrl = configuration["Email:ResetPasswordUrl"] ?? "http://localhost:5125/reset-password";
+
+            services.AddScoped<IEmailService>(provider =>
+                new MailtrapEmailService(smtpHost, smtpPort, smtpUsername, smtpPassword, fromEmail, fromName, resetPasswordUrl));
         }
     }
 }

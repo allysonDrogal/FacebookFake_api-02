@@ -25,5 +25,11 @@ namespace Facebook_Fake.Infrastruture.DataAccess.Repositories
                 .AsNoTracking()
                 .FirstOrDefaultAsync(u => u.Email == email);
         }
+
+        public async Task UpdateAsync(Users user)
+        {
+            _context.Users.Update(user);
+            await _context.SaveChangesAsync();
+        }
     }
 }

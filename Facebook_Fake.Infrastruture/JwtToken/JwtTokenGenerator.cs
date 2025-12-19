@@ -31,11 +31,11 @@ namespace Facebook_Fake.Infrastruture.JwtToken
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
-                issuer: "Facebook_Fake",
-                audience: "Facebook_Fake_Users",
-                claims: claims,
+                issuer: "Facebook_Fake",  // Quem emitiu o token
+                audience: "Facebook_Fake_Users",   // Para quem o token é destinado
+                claims: claims,  // Informações do usuário
                 expires: DateTime.UtcNow.AddMinutes(_expiryMinutes),
-                signingCredentials: creds
+                signingCredentials: creds  // Assinatura digital
             );
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
